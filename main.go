@@ -1,14 +1,15 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"os"
-	"text/template"
+	"bytes"
+	"html/template"
+	"net/http"
+	"os/exec"
 
-	"github.com/SebastiaanKlippert/go-wkhtmltopdf"
+	"github.com/gin-gonic/gin"
 )
 
+// Struktur untuk menampung data JSON
 type Resume struct {
 	Basics struct {
 		Name     string `json:"name"`
@@ -36,64 +37,41 @@ type Resume struct {
 }
 
 func main() {
-	// Membaca file JSON
-	file, err := os.ReadFile("resume_eng.json")
-	if err != nil {
-		fmt.Println("Error reading JSON file:", err)
-		return
-	}
+	r := gin.Default()
 
-	// Unmarshal JSON ke dalam struktur Resume
-	var resume Resume
-	err = json.Unmarshal(file, &resume)
-	if err != nil {
-		fmt.Println("Error unmarshalling JSON:", err)
-		return
-	}
+	r.POST("/generate", func(c *gin.Context) {
+		var resume Resume
+		if err := c.BindJSON(&resume); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
 
-	// Render template HTML
-	tmpl, err := template.ParseFiles("template.html")
-	if err != nil {
-		fmt.Println("Error parsing template file:", err)
-		return
-	}
+		// Load HTML template
+		tmpl, err := template.ParseFiles("template.html")
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to load template"})
+			return
+		}
 
-	// Buat file sementara untuk menyimpan hasil render HTML
-	tmpFile, err := os.CreateTemp("", "resume_*.html")
-	if err != nil {
-		fmt.Println("Error creating temp file:", err)
-		return
-	}
-	defer os.Remove(tmpFile.Name())
+		// Render HTML template with data
+		var htmlBuffer bytes.Buffer
+		if err := tmpl.Execute(&htmlBuffer, resume); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to render template"})
+			return
+		}
 
-	err = tmpl.Execute(tmpFile, resume)
-	if err != nil {
-		fmt.Println("Error executing template:", err)
-		return
-	}
+		// Create PDF using wkhtmltopdf
+		cmd := exec.Command("wkhtmltopdf", "-", "-")
+		cmd.Stdin = &htmlBuffer
+		pdfBuffer, err := cmd.Output()
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to generate PDF"})
+			return
+		}
 
-	tmpFile.Close()
+		// Send PDF as response
+		c.Data(http.StatusOK, "application/pdf", pdfBuffer)
+	})
 
-	// Konversi HTML ke PDF menggunakan wkhtmltopdf
-	pdfg, err := wkhtmltopdf.NewPDFGenerator()
-	if err != nil {
-		fmt.Println("Error creating PDF generator:", err)
-		return
-	}
-
-	pdfg.AddPage(wkhtmltopdf.NewPage(tmpFile.Name()))
-
-	err = pdfg.Create()
-	if err != nil {
-		fmt.Println("Error creating PDF:", err)
-		return
-	}
-
-	err = pdfg.WriteFile("resume.pdf")
-	if err != nil {
-		fmt.Println("Error writing PDF:", err)
-		return
-	}
-
-	fmt.Println("PDF successfully created")
+	r.Run(":8001")
 }
