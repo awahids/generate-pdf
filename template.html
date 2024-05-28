@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <title>Resume</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 40px;
+      color: #333;
+    }
+
+    .resume {
+      width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .header p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      color: #333;
+      border-bottom: 2px solid #666;
+      margin-bottom: 10px;
+    }
+
+    .item {
+      margin-bottom: 10px;
+    }
+
+    .item-label {
+      font-weight: bold;
+    }
+
+    .item-detail {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="resume">
+    <div class="header">
+      <h1>{{.Basics.Name}}</h1>
+      <p>{{.Basics.Email}}</p>
+      <p>{{.Basics.Phone}}</p>
+      <p>{{.Basics.Location.Address}}</p>
+      <p>{{.Basics.Website}}</p>
+    </div>
+    <div class="section">
+      <div class="section-title">Summary</div>
+      <p>{{.Basics.Summary}}</p>
+    </div>
+    <div class="section">
+      <div class="section-title">Pendidikan</div>
+      {{range .Education}}
+      <div class="item">
+        <span class="item-label">Institusi:</span> {{.Institution}}
+        <div class="item-detail"><span class="item-label">Bidang Studi:</span> {{.Area}}</div>
+        <div class="item-detail"><span class="item-label">Tanggal Mulai:</span> {{.StartDate}}</div>
+        <div class="item-detail"><span class="item-label">Tanggal Selesai:</span> {{.EndDate}}</div>
+      </div>
+      {{end}}
+    </div>
+    <div class="section">
+      <div class="section-title">Pengalaman Kerja</div>
+      {{range .Work}}
+      <div class="item">
+        <span class="item-label">Posisi:</span> {{.Position}}
+        <div class="item-detail"><span class="item-label">Perusahaan:</span> {{.Company}}</div>
+        <div class="item-detail"><span class="item-label">Tanggal Mulai:</span> {{.StartDate}}</div>
+        <div class="item-detail"><span class="item-label">Tanggal Selesai:</span> {{.EndDate}}</div>
+        {{range .Highlights}}
+        <div class="item-detail"><span class="item-label">Highlight:</span> {{.}}</div>
+        {{end}}
+      </div>
+      {{end}}
+    </div>
+  </div>
+</body>
+
+</html>

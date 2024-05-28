@@ -1,0 +1,232 @@
+{
+  "selectedTemplate": 2,
+  "headings": {
+    "work": "WORK EXPERIENCES",
+    "skills": "SKILLS",
+    "education": "EDUCATIONS",
+    "projects": "PROJECTS",
+    "awards": "CERTIFICATES"
+  },
+  "basics": {
+    "name": "Awahid Safhadi",
+    "email": "awahid.safhadi@gmail.com",
+    "phone": "+6282340780502",
+    "location": {
+      "address": "Sumbawa, Nusa Tenggara Barat"
+    },
+    "website": "https://awahids.my.id",
+    "summary": "I am an experienced backend developer with a strong background in creating, testing, and deploying APIs. My skills include TypeScript, MySQL, NestJS, and more. I have worked on various projects in different industries and am passionate about delivering high-quality solutions."
+  },
+  "education": [
+    {
+      "institution": "Mataram University",
+      "location": "Mataram, West Nusa Tenggara, Indonesia",
+      "startDate": "Aug 2014",
+      "gpa": "",
+      "studyType": "BACHELOR",
+      "area": "ENGINEERING INFORMATICS",
+      "endDate": "Feb 2022"
+    },
+    {
+      "institution": "Glints X Binar",
+      "area": "Backend Developer",
+      "startDate": "Aug 2021",
+      "endDate": "Dec 2021"
+    },
+    {
+      "institution": "Oracle Academy",
+      "area": "DESIGN AND PROGGRAMING DATABASE WITH SQL",
+      "startDate": "Aug 2021",
+      "endDate": "Sep 2021"
+    }
+  ],
+  "work": [
+    {
+      "position": "Backend Developer",
+      "website": "",
+      "startDate": "Aug 2022",
+      "endDate": "Present",
+      "highlights": [
+        "Responsible for designing and testing APIs using a range of technologies including TypeScript, MySql, NestJs, TypeOrm, Laravel, and Eloquent. Additionally, I am proficient in manually building and deploying these APIs to Alibaba server.",
+        "To ensure smooth coordination with the front-end division, I work closely with them to determine the API response required. In the event of any bugs or errors, I efficiently troubleshoot and fix them to ensure optimal performance."
+      ],
+      "company": "PT. Ethis Fintech Indonesia",
+      "location": "West Jakarta"
+    },
+    {
+      "position": "Backend Developer",
+      "website": "",
+      "startDate": "Jan 2022",
+      "endDate": "Aug 2022",
+      "highlights": [
+        "Responsible for creating, testing APIs using typeScript, MySql, NestJs for adawms.com",
+        "Do manual build to AWS server",
+        "Coordinate with the front-end division to determine the resulting API response"
+      ],
+      "company": "Adala.id",
+      "location": "South Tangerang, Banten"
+    },
+    {
+      "highlights": [
+        "Create a questionnaire in kobotoolbox",
+        "Monitor the data that goes to the kobotoolbox server",
+        "Processing incoming data to the server becomes simpler"
+      ],
+      "company": "Save The Children",
+      "position": "ASSISTANT CONSULTANT / PROJECT HELPER",
+      "location": "Mataram, West Nusa Tenggara",
+      "startDate": "Aug 2021",
+      "endDate": "Sep 2021"
+    },
+    {
+      "highlights": [
+        "Building an information system \"Perjalanan Dinas\" using the Laravel framework and mySql"
+      ],
+      "company": "PT. Air Minum Giri Menang (Perseroda)",
+      "position": "IT SUPPORT INTERNSHIP",
+      "location": "Mataram, West Nusa Tenggara",
+      "startDate": "Sep 2018",
+      "endDate": "Oct 2018"
+    }
+  ],
+  "skills": [
+    {
+      "level": "",
+      "keywords": [
+        "TypeScript",
+        "Javascript",
+        "PHP",
+        "HTML",
+        "CSS"
+      ],
+      "name": "Programming Languages"
+    },
+    {
+      "keywords": [
+        "Nestjs",
+        "Expressjs",
+        "Bootstrap",
+        "Laravel"
+      ],
+      "name": "Framework and Library "
+    },
+    {
+      "keywords": [
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB",
+        "Oracle Apex"
+      ],
+      "name": "Databases"
+    },
+    {
+      "keywords": [
+        "Git",
+        "Jira",
+        "Scrum",
+        "GraphQL Server",
+        "Postman",
+        "JWT"
+      ],
+      "name": "Others"
+    }
+  ],
+  "projects": [
+    {
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "JQuery",
+        "API Quran",
+        "Adobe After Effect"
+      ],
+      "name": "Belajar Ngaji",
+      "description": "SIMPLE WEBSITE FOR LEARN BASIC OF QURAN",
+      "url": "https://belajar-ngaji.awahids.my.id/"
+    },
+    {
+      "keywords": [
+        "Nextjs",
+        "CSS",
+        "Javascript",
+        "HTML",
+        "Vercel",
+        "idcloudthost"
+      ],
+      "name": "Arafah Group",
+      "description": "A website for a driving course service located in Bandung and surrounding areas.",
+      "url": "https://arafah-group.com"
+    },
+    {
+      "url": "http://hobbytalks.herokuapp.com/",
+      "keywords": [
+        "ExpressJS",
+        "MongoDB",
+        "Heroku",
+        "Postman",
+        "Cloudinary",
+        "NodeMailer",
+        "JWT",
+        "OAuth",
+        "Git"
+      ],
+      "name": "HobbyTalk",
+      "description": "HOBBYTALKS IS AN ONLINE PLATFORM THAT CONNECTS MANY HOBBYISTS WHO WANT TO SHARE THEIR EXPERIENCES AND STORIES ABOUT THEIR HOBBY"
+    },
+    {
+      "keywords": [
+        "ExpressJS",
+        "PostGreSQL",
+        "Heroku",
+        "Postman",
+        "Git",
+        "Cloudinary"
+      ],
+      "name": "Milan TV",
+      "description": "MILAN TV IS AN ONLINE PLATFORM FOR REVIEW OR GIVING RATINGS MOVIES",
+      "url": "https://github.com/awahids/API-panas.git"
+    }
+  ],
+  "awards": [
+    {
+      "date": "Dec 2021",
+      "awarder": "Glints X Binar",
+      "title": "Backend Developer",
+      "summary": "Learn to make API using javascript programming language (nodejs), expressjs framework for 3 months"
+    },
+    {
+      "title": "Pemroggraming Database with SQL",
+      "date": "Sep 2021",
+      "awarder": "Oracle Academy",
+      "summary": "Learn how to create a database and program using SQL"
+    },
+    {
+      "title": "Design Database",
+      "date": "Aug 2021",
+      "awarder": "Oracle Academy",
+      "summary": "Learn how to design a database for industrial needs so that you get an optimal and efficient database"
+    },
+    {
+      "title": "Javascript Course",
+      "date": "Jul 2021",
+      "awarder": "Progate",
+      "summary": "Learn basics of javascript like arrays, algorithms and Etc"
+    },
+    {
+      "title": "Sass Course",
+      "date": "Jul 2021",
+      "awarder": "Progate",
+      "summary": "Learn how to style using higher technology than CSS"
+    }
+  ],
+  "sections": [
+    "templates",
+    "profile",
+    "education",
+    "work",
+    "skills",
+    "projects",
+    "awards"
+  ]
+}
